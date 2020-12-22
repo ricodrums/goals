@@ -21,6 +21,7 @@ class CreateGoalsTable extends Migration
             $table->bigInteger('saved')->default(0);
             $table->bigInteger('last')->default(0);
             $table->date('limit_day')->nullable();
+            $table->foreignId('user_id')->constrained('users'); //Foreign Key with Goals of an user
             $table->timestamps();
         });
     }
