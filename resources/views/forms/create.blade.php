@@ -16,19 +16,19 @@
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal title:</label>
-                            <input class="col-sm-7 form-control" type="text">
+                            <input class="col-sm-7 form-control" type="text" placeholder="Set the title for the goal">
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal description:</label>
-                            <input class="col-sm-7 form-control" type="text">
+                            <input class="col-sm-7 form-control" type="text" placeholder="Set a description for the goal">
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal:</label>
-                            <input class="col-sm-7 form-control" type="text">
+                            <input class="col-sm-7 form-control" type="text" placeholder="Set the goal amount">
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 pb-2 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Limit Day:</label>
-                            <input class="col-sm-7 form-control" type="date" min="{{ date('Y-m-d') }}">
+                            <input class="col-sm-7 form-control" type="date" min="{{ date('Y-m-d') }}" placeholder="What is the limit of the goal reach">
                         </div>
                         <div class="modal-footer pt-4">
                             <a href="{{ url('/home') }}" class="btn btn-warning">Back</a>
