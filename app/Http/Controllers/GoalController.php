@@ -57,7 +57,7 @@ class GoalController extends Controller
      */
     public function edit(Goal $goal)
     {
-        return view('forms.edit');
+        return view('forms.edit', ['goal' => $goal]);
     }
 
     /**
