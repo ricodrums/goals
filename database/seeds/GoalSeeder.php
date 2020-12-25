@@ -2,7 +2,6 @@
 
 use App\Goal;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 
@@ -15,19 +14,20 @@ class GoalSeeder extends Seeder
      */
     public function run()
     {
-        $faker = new Faker();
-
-        for ($i = 0; $i < 50; $i++) {
+        $user = 1;
+        for ($i = 0; $i < 100; $i++) {
             $goal = new Goal([
-                'title' => 'Title: '.Str::random(5),
+                'title' => 'Goal: '.Str::random(5)."__". ($i + 1),
                 'description' => Str::random(25),
                 'goal' => rand(100000, 9999999),
                 'saved' => rand(0, 100000),
                 'last' => 0,
                 'limit_day' => now(),
-                'user_id' => 1,
+                'user_id' => $user,
+                'daily_pay' => rand(0, 10000),
             ]);
             $goal->save();
+            ($user == 1) ? $user = 2 : $user = 1;
         }
     }
 }
