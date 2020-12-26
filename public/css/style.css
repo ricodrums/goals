@@ -10,3 +10,11 @@ hr {
     margin-bottom: 0.3rem;
     padding: 0;
 }
+
+.links>a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
