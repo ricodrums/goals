@@ -36,7 +36,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Daily Pay:</div>
-                                <div class="col-6 text-right">$&nbsp;{{__('TODO!')}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->daily_pay)}}</div>
                             </div>
                             <hr>
                             <div class="row">
@@ -46,7 +46,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Supposed:</div>
-                                <div class="col-6 text-right">$&nbsp;{{__('TODO!')}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{$goal->supposed}}</div>
                             </div>
                             <hr>
                             <div class="row">
@@ -56,7 +56,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Difference:</div>
-                                <div class="col-6 text-right">$&nbsp;{{__('TODO!')}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->difference)}}</div>
                             </div>
                         </div> <!-- Card Body end -->
                         <div class="card-footer">
