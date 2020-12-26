@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Goal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GoalController extends Controller
 {
@@ -35,6 +36,11 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
+        $goal = new Goal($request->except('_method', '_token'));
+        $goal->daily_pay = $goal->saveDailyPay();
+        $goal->user_id = Auth::user()->id;
+        
+        $goal->save();
         return redirect('home');
     }
 
