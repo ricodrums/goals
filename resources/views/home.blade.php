@@ -7,8 +7,8 @@
         <div class="row justify-content-center">
 
             <!-- New Goal card -->
-            <div class="col-md-6 col-sm-6 col-12 col-lg-3 my-auto">
-                <div class="card">
+            <div class="col-md-4 col-sm-6 col-12 col-lg-4 my-auto">
+                <div class="card mb-4">
                     <div class="card-header text-center font-weight-bold">{{ __('New Goal') }}</div>
 
                     <div class="card-body text-center">
@@ -20,50 +20,54 @@
 
             @foreach ($goals as $goal)
                 <!-- Goal card -->
-                <div class="col-md-6 col-sm-6 col-12 col-lg-3 my-auto">
+                <div class="col-md-4 col-sm-6 col-12 col-lg-4 my-auto">
                     <div class="card mb-4">
                         <div class="card-header text-center font-weight-bold">{{ $goal->title }}</div>
 
                         <div class="card-body">
                             <div class="row mx-1" style="height: 3rem">
-                                <p class="pb-0 mb-0 line-clamp">{{$goal->description}}</p>
+                                <p class="pb-0 mb-0 line-clamp">{{ $goal->description }}</p>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Goal:</div>
-                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->goal)}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ number_format($goal->goal) }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Daily Pay:</div>
-                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->daily_pay)}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ number_format($goal->daily_pay) }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Saved:</div>
-                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->saved)}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ number_format($goal->saved) }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Supposed:</div>
-                                <div class="col-6 text-right">$&nbsp;{{$goal->supposed}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ $goal->supposed }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">L. Update:</div>
-                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->last)}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ number_format($goal->last) }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Difference:</div>
-                                <div class="col-6 text-right">$&nbsp;{{number_format($goal->difference)}}</div>
+                                <div class="col-6 text-right">$&nbsp;{{ number_format($goal->difference) }}</div>
                             </div>
                         </div> <!-- Card Body end -->
                         <div class="card-footer">
                             <div class="container-fluid p-0 m-0 text-center row">
-                                <div class="col-4 pt-1"><a class="text-success" href="#"><i class="fas fa-piggy-bank fa-2x"></i></a></div>
-                                <div class="col-4 pt-1"><a class="text-primary" href="{{ url('goals/' .$goal->id. '/edit') }}"><i class="fas fa-pen-alt fa-2x"></i></a></div>
-                                <div class="col-4 pt-1"><a class="text-danger" href="#"><i class="fas fa-trash-alt fa-2x"></i></a></div>
+                                <div class="col-4 pt-1"><a class="text-success" href="" data-toggle="modal" data-target="#save-modal" onclick="showModal({{$goal->id}}, {{Auth::user()->id}})"><i
+                                            class="fas fa-piggy-bank fa-2x"></i></a></div>
+                                <div class="col-4 pt-1"><a class="text-primary"
+                                        href="{{ url('goals/' . $goal->id . '/edit') }}"><i
+                                            class="fas fa-pen-alt fa-2x"></i></a></div>
+                                <div class="col-4 pt-1"><a class="text-danger" href="#"><i
+                                            class="fas fa-trash-alt fa-2x"></i></a></div>
                             </div>
                         </div> <!-- Card Footer end -->
                     </div> <!-- Card end -->
@@ -75,6 +79,7 @@
         <div class="row justify-content-center">
             {{ $goals->links() }}
         </div>
-
+        @include('forms.save-modal')
     </div>
+    <script src="{{asset('js/script.js')}}"></script>
 @endsection
