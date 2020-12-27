@@ -39,8 +39,8 @@ class GoalController extends Controller
         $goal = new Goal($request->except('_method', '_token'));
         $goal->daily_pay = $goal->saveDailyPay();
         $goal->user_id = Auth::user()->id;
-        
         $goal->save();
+
         return redirect('home');
     }
 
@@ -63,6 +63,9 @@ class GoalController extends Controller
      */
     public function edit(Goal $goal)
     {
+        if ($goal->user_id != Auth::user()->id) {
+            return view('auth.hacker');
+        }
         return view('forms.edit', ['goal' => $goal]);
     }
 
@@ -75,6 +78,15 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
+        $goal = Goal::findOrFail($goal->id);
+        $goal->title = $request->title;
+        $goal->description = $request->description;
+        $goal->goal = $request->goal;
+        $goal->limit_day = $request->limit_day; 
+        $goal->daily_pay = $goal->saveDailyPay();
+        $goal->user_id = Auth::user()->id;
+        $goal->save();
+        
         return redirect('home');
     }
 
@@ -87,5 +99,26 @@ class GoalController extends Controller
     public function destroy(Goal $goal)
     {
         //
+    }
+
+    /**
+     * Update the payment on a Goal
+     * 
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function payment(Request $request){
+
+        //Validate the goal id received from the request belongs to the actual user
+        $goal = Goal::findOrFail($request->goal_id);
+        if ($goal->user_id != Auth::user()->id){
+            return view('auth.hacker');
+        }
+
+        //Update the Goal saved and Latest update
+        $goal->saved += (int)($request->save_amount);
+        $goal->last = (int)($request->save_amount);
+        $goal->save();
+        return redirect('home');
     }
 }
