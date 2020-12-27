@@ -19,8 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * Auth routes for login, register, etc
+ */
 Auth::routes();
 
+/**
+ * Home route
+ */
 Route::get('/home', 'HomeController@index')->name('home');
 
+/**
+ * Goals routes
+ */
 Route::resource('goals', 'GoalController');
+Route::post('/goal/payment', 'GoalController@payment');
