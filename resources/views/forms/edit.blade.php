@@ -17,19 +17,19 @@
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal title:</label>
-                            <input class="col-sm-7 form-control" type="text" value="{{$goal->title}}">
+                            <input class="col-sm-7 form-control" type="text" name="title" value="{{$goal->title}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal description:</label>
-                            <input class="col-sm-7 form-control" type="text" value={{$goal->description}}>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal description">Goal description:</label>
+                            <input class="col-sm-7 form-control" type="text" name="description" value="{{$goal->description}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal:</label>
-                            <input class="col-sm-7 form-control" type="number" value="{{$goal->goal}}">
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal">Goal:</label>
+                            <input class="col-sm-7 form-control" type="number" name="goal" value="{{$goal->goal}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 pb-2 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Limit Day:</label>
-                            <input class="col-sm-7 form-control" type="date" min="{{ date('Y-m-d') }}" value="{{$goal->limit_day}}">
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal limit day">Limit Day:</label>
+                            <input class="col-sm-7 form-control" type="date" name="limit_day" min="{{ date('Y-m-d') }}" value="{{$goal->limit_day}}" required>
                         </div>
                         <div class="modal-footer pt-4">
                             <a href="{{ url('/home') }}" class="btn btn-warning">Back</a>
