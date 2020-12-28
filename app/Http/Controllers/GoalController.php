@@ -96,9 +96,15 @@ class GoalController extends Controller
      * @param  \App\Goal  $goal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Goal $goal)
+    public function destroy(Request $request)
     {
-        //
+        //Validate the goal id received from the request belongs to the actual user
+        $goal = Goal::findOrFail($request->goal_id);
+        if ($goal->user_id != Auth::user()->id){
+            return view('auth.hacker');
+        }
+
+        $goal->delete();
     }
 
     /**

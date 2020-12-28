@@ -32,5 +32,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 /**
  * Goals routes
  */
-Route::resource('goals', 'GoalController');
-Route::post('/goal/payment', 'GoalController@payment');
+Route::resource('goals', 'GoalController')->middleware('auth');
+Route::post('/goal/payment', 'GoalController@payment')->middleware('auth');

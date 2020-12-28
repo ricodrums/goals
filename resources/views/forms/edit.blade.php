@@ -10,9 +10,9 @@
                     <h5 class="modal-title col-6 text-right">{{$goal->title}}</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/goals/1') }}" method="POST">
+                    <form action="{{ url('/goals/'.$goal->id) }}" method="POST">
                         <div class="container-fluid form-group row">
-                            @method('put')
+                            @method('PUT')
                             @csrf
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
