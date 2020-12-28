@@ -15,7 +15,7 @@ class GoalController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return redirect('home');
     }
 
     /**
@@ -52,7 +52,7 @@ class GoalController extends Controller
      */
     public function show(Goal $goal)
     {
-        return view('home');
+        return redirect('home');
     }
 
     /**
