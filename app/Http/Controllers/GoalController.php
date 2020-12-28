@@ -37,7 +37,7 @@ class GoalController extends Controller
     public function store(Request $request)
     {
         $goal = new Goal($request->except('_method', '_token'));
-        $goal->daily_pay = $goal->saveDailyPay();
+        $goal->daily_pay = (int) $goal->saveDailyPay();
         $goal->user_id = Auth::user()->id;
         $goal->save();
 

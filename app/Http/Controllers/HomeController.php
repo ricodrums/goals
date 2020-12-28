@@ -41,7 +41,7 @@ class HomeController extends Controller
             //Get the amount of days between the created goal and the current day
             $days = date_diff($goal->created_at, now())->days;
             //Calculate and save the supposed value til the day
-            $supposed = $days * $goal->daily_pay;
+            $supposed = (int) $days * $goal->daily_pay;
             $goal->supposed = $supposed;
 
             //Calculate the difference and save it
