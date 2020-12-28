@@ -83,7 +83,7 @@ class GoalController extends Controller
         $goal->description = $request->description;
         $goal->goal = $request->goal;
         $goal->limit_day = $request->limit_day; 
-        $goal->daily_pay = $goal->saveDailyPay();
+        $goal->daily_pay = (int) $goal->saveDailyPay();
         $goal->user_id = Auth::user()->id;
         $goal->save();
         
