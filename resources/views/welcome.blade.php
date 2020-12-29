@@ -44,7 +44,6 @@
             <div class="links">
                 <a href="{{ url('/home') }}">Get Started</a>
                 <a href="https://github.com/ricodrums/goals">Github</a>
-                <a href="#">Contact us</a>
             </div>
             <div class="bottom">
                 <p class=""><i class="fas fa-info-circle"></i> &nbsp; This version is for testig and learning, please
