@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user(); //Authenticated User
-        $goals = Goal::where('user_id', $user->id)->with('user')->paginate(5); //Goals from the Auth User, and paginated 10 by 10
+        $goals = Goal::where('user_id', $user->id)->with('user')->orderBy('limit_day')->paginate(5); //Goals from the Auth User, and paginated 10 by 10
         //Add supposed and diference to every Goal on the list
         $goals = $this->calculateValues($goals);
         return view('home', ['goals' => $goals]);
