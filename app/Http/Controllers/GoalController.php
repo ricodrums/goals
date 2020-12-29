@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Goal;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,11 +37,20 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
-        $goal = new Goal($request->except('_method', '_token'));
-        $goal->daily_pay = (int) $goal->saveDailyPay();
-        $goal->user_id = Auth::user()->id;
-        $goal->save();
-
+        $request->validate([
+            'title' => 'required|max:20',
+            'description' => 'required|max:64',
+            'goal' => 'required|integer',
+            'limit_day' => 'required|date'
+        ]);
+        try {
+            $goal = new Goal($request->except('_method', '_token'));
+            $goal->daily_pay = (int) $goal->saveDailyPay();
+            $goal->user_id = Auth::user()->id;
+            $goal->save();
+        } catch (Exception $exception) {
+            return view('forms.create', $exception);
+        }
         return redirect('home');
     }
 
@@ -78,15 +88,25 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
-        $goal = Goal::findOrFail($goal->id);
-        $goal->title = $request->title;
-        $goal->description = $request->description;
-        $goal->goal = $request->goal;
-        $goal->limit_day = $request->limit_day; 
-        $goal->daily_pay = (int) $goal->saveDailyPay();
-        $goal->user_id = Auth::user()->id;
-        $goal->save();
-        
+        $request->validate([
+            'title' => 'required|max:20',
+            'description' => 'required|max:64',
+            'goal' => 'required|integer',
+            'limit_day' => 'required|date'
+        ]);
+        try {
+            $goal = Goal::findOrFail($goal->id);
+            $goal->title = $request->title;
+            $goal->description = $request->description;
+            $goal->goal = $request->goal;
+            $goal->limit_day = $request->limit_day;
+            $goal->daily_pay = (int) $goal->saveDailyPay();
+            $goal->user_id = Auth::user()->id;
+            $goal->save();
+        } catch (Exception $exception) {
+            return view('errors.exception', $exception);
+        }
+
         return redirect('home');
     }
 
@@ -100,10 +120,9 @@ class GoalController extends Controller
     {
         //Validate the goal id received from the request belongs to the actual user
         $goal = Goal::findOrFail($request->goal_id);
-        if ($goal->user_id != Auth::user()->id){
+        if ($goal->user_id != Auth::user()->id) {
             return view('auth.hacker');
         }
-
         $goal->delete();
     }
 
@@ -113,11 +132,12 @@ class GoalController extends Controller
      * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function payment(Request $request){
+    public function payment(Request $request)
+    {
 
         //Validate the goal id received from the request belongs to the actual user
         $goal = Goal::findOrFail($request->goal_id);
-        if ($goal->user_id != Auth::user()->id){
+        if ($goal->user_id != Auth::user()->id) {
             return view('auth.hacker');
         }
 
