@@ -27,8 +27,8 @@
                         {{ "border-danger" }}
                     @endif">
                         <div class="card-header row m-0">
-                            <div class="col-4 text-center font-weight-bold">{{$goal->title}}</div>
-                            <div class="col-8 text-right">{{$goal->limit_day}}</div>    
+                            <div class="col-lg-6 col-md-12 px-1 text-left font-weight-bold">{{$goal->title}}</div>
+                            <div class="col-lg-6 col-md-12 px-1 text-right">{{$goal->limit_day}}</div>    
                         </div>
 
                         <div class="card-body">
