@@ -26,14 +26,14 @@
                     @else
                         {{ "border-danger" }}
                     @endif">
-                        <div class="card-header row m-0">
+                        <div class="card-header m-0 px-2 py-2 row">
                             <div class="col-lg-6 col-md-12 px-1 text-left font-weight-bold">{{$goal->title}}</div>
                             <div class="col-lg-6 col-md-12 px-1 text-right">{{$goal->limit_day}}</div>    
                         </div>
 
-                        <div class="card-body">
-                            <div class="row mx-1" style="height: 3rem">
-                                <p class="pb-0 mb-0 line-clamp">{{ $goal->description }}</p>
+                        <div class="card-body p-3">
+                            <div class="row mx-1" style="height: 2.6rem">
+                                <p class="line-clamp">{{ $goal->description }}</p>
                             </div>
                             <hr>
                             <div class="row">
@@ -71,7 +71,7 @@
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->difference) }}</div>
                             </div>
                         </div> <!-- Card Body end -->
-                        <div class="card-footer">
+                        <div class="card-footer py-0">
                             <div class="container-fluid p-0 m-0 text-center row">
                                 <div class="col-4 pt-1"><a class="text-success btn btn-link" href="" data-toggle="modal" data-target="#save-modal" onclick="showModal({{$goal->id}})"><i
                                             class="fas fa-piggy-bank fa-2x"></i></a></div>
