@@ -49,7 +49,7 @@ class GoalController extends Controller
             $goal->user_id = Auth::user()->id;
             $goal->save();
         } catch (Exception $exception) {
-            return view('forms.create', $exception);
+            return view('errors.exception', ['exception' => $exception]);
         }
         return redirect('home');
     }
@@ -104,7 +104,7 @@ class GoalController extends Controller
             $goal->user_id = Auth::user()->id;
             $goal->save();
         } catch (Exception $exception) {
-            return view('errors.exception', $exception);
+            return view('errors.exception', ['exception' => $exception]);
         }
 
         return redirect('home');

@@ -30,7 +30,7 @@ class Goal extends Model
         //Get the amount of days between the limit day and the created goal
         $days = date_diff(date_create($this->limit_day), now())->days;
 
-        $daily_pay = $this->goal / $days;
+        $daily_pay = $this->goal / ($days + 1);
 
         return $daily_pay;
     }
