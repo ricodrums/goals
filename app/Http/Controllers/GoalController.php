@@ -147,4 +147,52 @@ class GoalController extends Controller
         $goal->save();
         return redirect('home');
     }
+
+    /**
+     * Show the form for renew the specified resource.
+     *
+     * @param  \App\Goal  $goal
+     * @return \Illuminate\Http\Response
+     */
+    public function renew(Goal $goal)
+    {
+        if ($goal->user_id != Auth::user()->id) {
+            return view('auth.hacker');
+        }
+        return view('forms.renew', ['goal' => $goal]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Goal  $goal
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Request $request, Goal $goal)
+    {
+        $request->validate([
+            'title' => 'required|max:20',
+            'description' => 'required|max:64',
+            'goal' => 'required|integer',
+            'limit_day' => 'required|date'
+        ]);
+        try {
+            $goal = Goal::findOrFail($goal->id);
+            $goal->title = $request->title;
+            $goal->description = $request->description;
+            $goal->goal = $request->goal;
+            $goal->saved = 0;
+            $goal->limit_day = $request->limit_day;
+            $goal->daily_pay = (int) $goal->saveDailyPay();
+            $goal->user_id = Auth::user()->id;
+            $goal->created_at = now();
+            $goal->save();
+        } catch (Exception $exception) {
+            return view('errors.exception', ['exception' => $exception]);
+        }
+
+        return redirect('home');
+    }
 }

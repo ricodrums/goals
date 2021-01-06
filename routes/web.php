@@ -34,3 +34,10 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 Route::resource('goals', 'GoalController')->middleware('auth');
 Route::post('/goal/payment', 'GoalController@payment')->middleware('auth');
+Route::get('/goal/{goal}/renew', 'GoalController@renew')->middleware('auth');
+Route::put('/goal/{goal}/renew', 'GoalController@restore')->middleware('auth');
+
+/**
+ * Testing route
+ */
+Route::get('/completed', 'HomeController@test');
