@@ -41,7 +41,7 @@ class GoalController extends Controller
             'title' => 'required|max:20',
             'description' => 'required|max:64',
             'goal' => 'required|integer',
-            'limit_day' => 'required|date'
+            'limit_day' => 'required|date|after:'.date('Y-m-d')
         ]);
         try {
             $goal = new Goal($request->except('_method', '_token'));

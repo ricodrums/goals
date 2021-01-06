@@ -22,7 +22,7 @@ class GoalSeeder extends Seeder
                 'goal' => rand(100000, 9999999),
                 'saved' => rand(0, 100000),
                 'last' => 0,
-                'limit_day' => date_create((2021 + $i).'-12-31'),
+                'limit_day' => date_create((2000 + $i).'-12-31'),
                 'user_id' => $user,
                 'daily_pay' => rand(0, 10000),
             ]);

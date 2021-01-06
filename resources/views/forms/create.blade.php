@@ -17,22 +17,22 @@
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal title:</label>
                             <input class="col-sm-7 form-control" type="text" name="title"
-                                placeholder="Set the title for the goal" maxlength="20" required>
+                                placeholder="Set the title for the goal" maxlength="20" value="{{old('title')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal description:</label>
                             <input class="col-sm-7 form-control" type="text" name="description"
-                                placeholder="Set a description for the goal" maxlength="64" required>
+                                placeholder="Set a description for the goal" maxlength="64" value="{{old('description')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal:</label>
                             <input class="col-sm-7 form-control" type="number" name="goal" placeholder="Set the goal amount"
-                                min="0" required>
+                                min="0" value="{{old('goal')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 pb-0 row">
                             <label class="col-sm-5 d-block d-sm-inline" for="goal title">Limit Day:</label>
                             <input class="col-sm-7 form-control" type="date" name="limit_day" min="{{ date('Y-m-d') }}"
-                                placeholder="What is the limit of the goal reach" required>
+                                placeholder="What is the limit of the goal reach" value="{{old('limit_day')}}" required>
                         </div>
                         <div class="modal-footer pt-4 pb-0 mb-0">
                             <a href="{{ url('/home') }}" class="btn btn-warning">Back</a>
