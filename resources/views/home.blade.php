@@ -3,6 +3,16 @@
 @section('content')
     <div class="container-fluid m-0">
 
+        @if (sizeof($completed))
+        <div class="justify-content-center row my-2 mx-2 py-2 px-2 border border-success">
+            <p class="col-6 pt-3">You have goals that have reached the limit day...</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success col-6" data-toggle="modal" data-target="#completedModal">
+                See!
+            </button>
+        </div>
+        @endif
+
         <!-- Cards container -->
         <div class="row justify-content-center">
 
@@ -92,6 +102,7 @@
             {{ $goals->links() }}
         </div>
         @include('forms.save-modal')
+        @include('forms.completed')
     </div>
     <script src="{{asset('js/script.js')}}"></script>
 @endsection
