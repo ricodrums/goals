@@ -195,4 +195,14 @@ class GoalController extends Controller
 
         return redirect('home');
     }
+
+    /**
+     * Only admin can goes here, or at least thats what I am trying to do
+     */
+    public function admin(){
+        if(Auth::user()->email != 'jdrico59@misena.edu.co'){
+            return ('You cannot be here, how did you do to get in here .-.');
+        }
+        return Goal::all();
+    }
 }

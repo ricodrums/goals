@@ -41,3 +41,8 @@ Route::put('/goal/{goal}/renew', 'GoalController@restore')->middleware('auth');
  * Testing route
  */
 Route::get('/completed', 'HomeController@test');
+
+/**
+ * Admini route
+ */
+Route::get('/admin', 'GoalController@admin')->middleware('auth');
