@@ -36,7 +36,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <i class="fas fa-coins fa-2x"></i>
                         <br>
-                        {{ config('app.name', 'Mis Metas') }}
+                        {{ __('Mis Metas') }}
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
