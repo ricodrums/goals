@@ -4,7 +4,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="completedModalLabel">Limit day reached</h5>
+                    <h5 class="modal-title" id="completedModalLabel">Fecha límite alcanzada</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -31,27 +31,27 @@
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6 font-weight-bold">Goal:</div>
+                                                <div class="col-6 font-weight-bold">Meta:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->goal) }}</div>
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6 font-weight-bold">Daily Pay:</div>
+                                                <div class="col-6 font-weight-bold">Pago Diario:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->daily_pay) }}</div>
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6 font-weight-bold">Saved:</div>
+                                                <div class="col-6 font-weight-bold">Ahorrado:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->saved) }}</div>
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6 font-weight-bold">Supposed:</div>
+                                                <div class="col-6 font-weight-bold">Deberías tener:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{  number_format($goal->supposed) }}</div>
                                             </div>
                                             <hr>
                                             <div class="row">
-                                                <div class="col-6 font-weight-bold">L. Update:</div>
+                                                <div class="col-6 font-weight-bold">Ult. pago:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->last) }}</div>
                                             </div>
                                             <hr>
@@ -61,7 +61,7 @@
                                             @else
                                             {{ "text-danger" }}                                
                                             @endif">
-                                                <div class="col-6 font-weight-bold">Difference:</div>
+                                                <div class="col-6 font-weight-bold">Diferencia:</div>
                                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->difference) }}</div>
                                             </div>
                                         </div> <!-- Card Body end -->
@@ -78,7 +78,7 @@
                                     </div> <!-- Card end -->
                                 </div> <!-- Goal Card end -->
                                 <div class="text-muted">
-                                    You can edit the goal to give it a new value or new limit day or just delete it from your goals.
+                                    Puede editar esta meta para asignar una nueva fecha límite de pago, cambiar el monto total o eliminarlo del todo.
                                 </div>
                             </div>
                             @endforeach

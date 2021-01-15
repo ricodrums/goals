@@ -16,22 +16,22 @@
                             @csrf
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal title:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Título:</label>
                             <input class="col-sm-7 form-control" type="text" name="title" value="{{ $goal->title }}"
                                 maxlength="20" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal description">Goal description:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal description">Descripción:</label>
                             <input class="col-sm-7 form-control" type="text" name="description"
                                 value="{{ $goal->description }}" maxlength="64" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal">Goal:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal">Meta:</label>
                             <input class="col-sm-7 form-control" type="number" name="goal" value="{{ $goal->goal }}"
                                 required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 pb-2 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal limit day">Limit Day:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal limit day">Fecha límite:</label>
                             <input class="col-sm-7 form-control" type="date" name="limit_day" min="{{ date('Y-m-d') }}"
                                 value="{{ $goal->limit_day }}" required>
                         </div>
@@ -43,7 +43,7 @@
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger m-0 p-2">
-                        <h5>There is one or more errors:</h5>
+                        <h5>Hay uno o más errores:</h5>
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

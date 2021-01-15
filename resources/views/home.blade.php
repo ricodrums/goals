@@ -5,10 +5,10 @@
 
         @if (sizeof($completed))
         <div class="justify-content-center row my-2 mx-2 py-2 px-2 border border-success">
-            <p class="col-6 pt-3">You have goals that have reached the limit day...</p>
+            <p class="col-6 pt-3">Has alcanzado el tiempo límite de algunas metas...</p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-success col-6" data-toggle="modal" data-target="#completedModal">
-                See!
+                ¡Ver!
             </button>
         </div>
         @endif
@@ -19,11 +19,11 @@
             <!-- New Goal card -->
             <div class="col-md-4 col-sm-6 col-12 col-lg-4 my-auto">
                 <div class="card mb-4">
-                    <div class="card-header text-center font-weight-bold">{{ __('New Goal') }}</div>
+                    <div class="card-header text-center font-weight-bold">{{ __('Nueva Meta') }}</div>
 
                     <div class="card-body text-center">
-                        <p class="p-3">Here you can add a new Goal to your life. <br> GO AHEAD!</p>
-                        <a href="{{ url('goals/create') }}" class="btn btn-success rounded d-block">Create new goal</a>
+                        <p class="p-3">Aquí puede agregar nuevas metas en tu vida.<br>¡VAMOS!</p>
+                        <a href="{{ url('goals/create') }}" class="btn btn-success rounded d-block">Crear nueva Meta</a>
                     </div> <!-- Card Body end -->
                 </div> <!-- Card end -->
             </div> <!-- New Goal Card end -->
@@ -47,27 +47,27 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-6 font-weight-bold">Goal:</div>
+                                <div class="col-6 font-weight-bold">Meta:</div>
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->goal) }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-6 font-weight-bold">Daily Pay:</div>
+                                <div class="col-6 font-weight-bold">Pago Diario:</div>
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->daily_pay) }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-6 font-weight-bold">Saved:</div>
+                                <div class="col-6 font-weight-bold">Ahorrado:</div>
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->saved) }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-6 font-weight-bold">Supposed:</div>
+                                <div class="col-6 font-weight-bold">Deberías tener:</div>
                                 <div class="col-6 text-right">$&nbsp;{{  number_format($goal->supposed) }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-6 font-weight-bold">L. Update:</div>
+                                <div class="col-6 font-weight-bold">Ult. pago:</div>
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->last) }}</div>
                             </div>
                             <hr>
@@ -77,7 +77,7 @@
                             @else
                             {{ "text-danger" }}                                
                             @endif">
-                                <div class="col-6 font-weight-bold">Difference:</div>
+                                <div class="col-6 font-weight-bold">Diferencia:</div>
                                 <div class="col-6 text-right">$&nbsp;{{ number_format($goal->difference) }}</div>
                             </div>
                         </div> <!-- Card Body end -->

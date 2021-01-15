@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Goals</title>
+    <title>Mis Metas</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,7 +36,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <i class="fas fa-coins fa-2x"></i>
                         <br>
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Mis Metas') }}
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -56,11 +56,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item links">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item links">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
@@ -72,7 +72,7 @@
                             <li class="nav-item links">
                                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                  document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Salir') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -4,13 +4,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="save-modalLabel">Make Payment</h5>
+                <h5 class="modal-title" id="save-modalLabel">Realizar pago</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Put the amount of money you wish to save on your Goal.
+                Pon la cantidad que deseas ahorrar
                 <form action="goal/payment" class="form row" method="POST" id="payment">
                     @csrf
                     @method('post')
@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="modal-footer col-12 pb-0">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-success" value="Save Changes">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-success" value="Guardar">
                     </div>
                 </form>
             </div>

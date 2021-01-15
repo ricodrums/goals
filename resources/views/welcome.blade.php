@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>My Goals</title>
+    <title>Mis Metas</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -23,12 +23,12 @@
         @if (Route::has('login'))
             <div class="top-right links">
                 @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ url('/home') }}">Principal</a>
                 @else
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">Iniciar Sesion</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('register') }}">Registrarse</a>
                     @endif
                 @endauth
             </div>
@@ -36,19 +36,19 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Goals!
+                ¡Metas!
             </div>
             <div class="px-2">
-                Track your outcomes as goals and complete them...
+                Convierte tus obligaciones en metas y lleva un registro de estas para completarlas más fácilmente.
             </div>
             <br><br>
             <div class="links">
-                <a href="{{ url('/home') }}">Get Started</a>
+                <a href="{{ url('/home') }}">Iniciar</a>
                 <a href="https://github.com/ricodrums/goals">Github</a>
             </div>
             <div class="bottom">
-                <p class=""><i class="fas fa-info-circle"></i> &nbsp; This version is for testig and learning, please
-                    report errors at jdrico59@misena.edu.co</p>
+                <p class=""><i class="fas fa-info-circle"></i> &nbsp; Esta app esta en desarrollo y es de aprendizaje y
+                    práctica, agradecería muchísimo si se encuentran errores reportarlos a jdrico59@misena.edu.co</p>
             </div>
         </div>
     </div>

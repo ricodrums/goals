@@ -13,13 +13,13 @@ function showModal(goal) {
  */
 function deleteGoal(goal) {
     Swal.fire({
-        title: 'Are you sure?',
-        html: "You won't be able to revert <b>" + goal.title + '</b> erase!',
+        title: 'Estás seguro?',
+        html: "Si borras <b>" + goal.title + '</b> no podrás deshacerlo.',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, borrarlo.'
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
@@ -33,8 +33,8 @@ function deleteGoal(goal) {
                 method: 'POST',
                 success: function(result) {
                     Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
+                        'Eliminado!',
+                        'El registro ha sido borrado exitosamente.',
                         'success'
                     )
                 },
@@ -44,8 +44,8 @@ function deleteGoal(goal) {
             });
         } else {
             Swal.fire({
-                title: 'Canceled',
-                html: '<b>' + goal.title + '</b>' + ' is safe!',
+                title: 'Cancelado',
+                html: '<b>' + goal.title + '</b>' + ' está a salvo!',
                 icon: 'warning'
             })
         }

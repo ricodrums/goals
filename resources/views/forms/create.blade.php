@@ -15,34 +15,34 @@
                             @csrf
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal title:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Título para tu meta:</label>
                             <input class="col-sm-7 form-control" type="text" name="title"
-                                placeholder="Set the title for the goal" maxlength="20" value="{{old('title')}}" required>
+                                placeholder="Asigna un titulo a tu meta" maxlength="20" value="{{old('title')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal description:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Descripción:</label>
                             <input class="col-sm-7 form-control" type="text" name="description"
-                                placeholder="Set a description for the goal" maxlength="64" value="{{old('description')}}" required>
+                                placeholder="Describe brevemente tu meta" maxlength="64" value="{{old('description')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Goal:</label>
-                            <input class="col-sm-7 form-control" type="number" name="goal" placeholder="Set the goal amount"
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Meta:</label>
+                            <input class="col-sm-7 form-control" type="number" name="goal" placeholder="Monto al que deseas llegar"
                                 min="0" value="{{old('goal')}}" required>
                         </div>
                         <div class="container-fluid form-group px-0 mx-0 pb-0 row">
-                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Limit Day:</label>
+                            <label class="col-sm-5 d-block d-sm-inline" for="goal title">Fecha límite:</label>
                             <input class="col-sm-7 form-control" type="date" name="limit_day" min="{{ date('Y-m-d') }}"
-                                placeholder="What is the limit of the goal reach" value="{{old('limit_day')}}" required>
+                                placeholder="Día final de la meta" value="{{old('limit_day')}}" required>
                         </div>
                         <div class="modal-footer pt-4 pb-0 mb-0">
-                            <a href="{{ url('/home') }}" class="btn btn-warning">Back</a>
-                            <input type="submit" class="btn btn-success" value="Save Changes">
+                            <a href="{{ url('/home') }}" class="btn btn-warning">Atrás</a>
+                            <input type="submit" class="btn btn-success" value="Guardar">
                         </div>
                     </form>
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger m-0 p-2">
-                        <h5>There is one or more errors:</h5>
+                        <h5>Hay uno o varios errores:</h5>
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
